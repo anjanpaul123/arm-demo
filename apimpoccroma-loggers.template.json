@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ApimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "properties": {
+        "loggerType": "applicationInsights",
+        "credentials": {
+          "instrumentationKey": "{{Logger-Credentials-5ebd3301b9dd16117cba5b90}}"
+        },
+        "isBuffered": true,
+        "resourceId": "/subscriptions/34344759-c3a1-4856-8752-b677209afd2b/resourceGroups/cin-s03-uat-rsg-cis-01/providers/microsoft.insights/components/APIM_Dev_log"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/apim-dev-log')]",
+      "type": "Microsoft.ApiManagement/service/loggers",
+      "apiVersion": "2019-01-01"
+    }
+  ]
+}
